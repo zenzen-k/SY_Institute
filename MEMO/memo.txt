@@ -1,0 +1,11 @@
+
+	* debug 하는 방법 Ex03_10 *
+
+	1. 보고싶은 줄 번호 우클릭
+	2. 상단 메뉴바의 Run - Debug As - Java Application 클릭
+	3. Confirm Perspective Switch 창이 뜨면 Switch 클릭
+	4. F6 을 눌러서 우측 Variables 탭에서 데이터 값의 변화를 하나씩 볼 수 있으며 하단 Console창에서도 변화를 함께 볼 수 있음.
+	5. 디버그가 끝나면 우측 상단 벌레모양 옆의 아이콘 java를 눌러서 원래대로 돌아 올 수 있다.
+	
+	
+	
