@@ -9,7 +9,9 @@ public class Ex05_12_김아연 {
 		System.out.print("숫자2:");
 		int num2 = sc.nextInt();
 		
-		System.out.println("result:" + power(num1, num2));
+		int pow = power(num1, num2);
+		System.out.println("result:" + pow);
+		System.out.println(num1 + "의 " + num2 + "승은 " + pow + "입니다.");
 	}
 	
 	static int power(int x, int y) {
