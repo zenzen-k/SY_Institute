@@ -73,6 +73,8 @@ public class Ex05_07_문제풀이 {
 		
 		stu.show();
 		Student2.show();
+		
+		sc.close();
 	}
 
 }

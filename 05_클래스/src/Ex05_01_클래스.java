@@ -4,6 +4,11 @@ class Person { // Person class 선언. 클래스명은 첫글자는 대문자로
 	int age;
 	double height;
 	static String nation; //공유변수	//똑같은 정보를 넣고 싶을 때에는 static을 사용함. nation이라는 공간이 하나만 생성된다. 여러 객체가 공유함
+	
+	//숨어있는 기본 생성자
+//	Person(){
+//		System.out.println("생성자");	//생성자 확인을 위해서 출력해봄
+//	}
 }
 
 public class Ex05_01_클래스 {

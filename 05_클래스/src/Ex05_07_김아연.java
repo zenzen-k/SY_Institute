@@ -45,6 +45,8 @@ public class Ex05_07_김아연 {
 		
 		//평균 출력(소수 아래 2자리까지 출력)
 		System.out.printf("평균출력:%.2f",std.avg(std.kor, std.eng, std.math));
+		
+		sc.close();
 	}
 
 }   
