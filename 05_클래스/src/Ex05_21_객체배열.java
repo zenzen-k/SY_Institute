@@ -63,6 +63,12 @@ public class Ex05_21_객체배열 {
 		for (i = 0; i < arr.length; i++) {
 			arr[i].display();
 		}
+		System.out.println("----------");
+		
+		//확장 for문
+		for(Student3 x : arr) {
+			x.display();
+		}
 
 	}// main
 

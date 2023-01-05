@@ -107,6 +107,10 @@ public class Ex05_20_김아연 {
 		for(int i=0; i<arr.length; i++) {
 			arr[i].display();
 		}
+		// 확장 for문
+		for(Snack x : arr) {
+			x.display();
+		}
 		
 	}
 
