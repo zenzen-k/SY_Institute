@@ -18,20 +18,20 @@ class Machine {
 class Game extends Machine {
 	private String gname;
 	private String genre;
-	private int rtn; // 나이 제한
+	private int age; // 나이 제한
 
-	public Game(String mchnType, String platf, String gname, String genre, int rtn) {
+	public Game(String mchnType, String platf, String gname, String genre, int age) {
 		super(mchnType, platf);
 		this.gname = gname;
 		this.genre = genre;
-		this.rtn = rtn;
+		this.age = age;
 	}
 
 	public void display() {
 		super.display();
 		System.out.println("게임이름:" + gname);
 		System.out.println("게임장르:" + genre);
-		System.out.println("연령제한:" + rtn + "세");
+		System.out.println("연령제한:" + age + "세");
 	}
 
 } // Game
@@ -40,8 +40,8 @@ class Purchase extends Game {
 	private String ESD; // 구매사이트
 	private int price;
 
-	public Purchase(String mchnType, String platf, String gname, String genre, int rtn, String ESD, int price) {
-		super(mchnType, platf, gname, genre, rtn);
+	public Purchase(String mchnType, String platf, String gname, String genre, int age, String ESD, int price) {
+		super(mchnType, platf, gname, genre, age);
 		this.ESD = ESD;
 		this.price = price;
 	}
@@ -51,7 +51,7 @@ class Purchase extends Game {
 		System.out.println("유통망:" + ESD);
 		System.out.println("가격:" + price + "원");
 	}
-} // Purchasec
+} // Purchase
 
 public class Ex06_08_김아연 {
 	public static void main(String[] args) {
