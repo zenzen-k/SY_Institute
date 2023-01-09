@@ -27,7 +27,7 @@ class Baseball2 {
 	//출력
 	public void display() {
 		s.display();
-		System.out.println("," + ta);
+		System.out.println("," + ta); // this.ta
 	}
 } // Baseball2
 

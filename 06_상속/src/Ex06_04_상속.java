@@ -54,6 +54,10 @@ class Teacher extends Employee2 {
 //	private String company; // Employee2 부모로부터 상속
 //	private String part;
 	private String subject;
+	
+	public Teacher() {
+		
+	}
 
 	public Teacher(String name, int age, String company, String part, String subject) {
 		super(name, age, company, part); //super() 부모의 생성자를 호출하는 것은 맨위에
@@ -82,6 +86,18 @@ public class Ex06_04_상속 {
 		System.out.println("-----");
 		Teacher t = new Teacher("태연", 50, "SM고", "생활지도부", "음악");
 		t.show();
+		
+		
+		Person2 arr[] = {
+						 new Person2("제니", 20),
+						 new Employee2("지디", 30, "쌍용출판사", "인사부"),
+						 new Teacher("태연", 50, "SM고", "생활지도부", "음악")
+		};
+		
+		for(int i=0; i<arr.length; i++) {
+			System.out.println("-----");
+			arr[i].show();
+		}
 
 	}// main
 

@@ -23,8 +23,8 @@ import java.util.Date;
 
 public class Ex06_06_import {
 	public static void main(String[] args) {
-		Car car = new Car(100,"동남"); // 같은 프로젝트 안의 같은 패키지 안에서만 Car클래스를 찾는다.
-		car.prnCar();
+//		Car car = new Car(100,"동남"); // 같은 프로젝트 안의 같은 패키지 안에서만 Car클래스를 찾는다.
+//		car.prnCar();
 		
 		System.out.println(123);
 		

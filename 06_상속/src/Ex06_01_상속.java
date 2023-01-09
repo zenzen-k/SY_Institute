@@ -4,7 +4,7 @@ class Sports { // 부모클래스(상위클래스, 조상클래스)
 	private int inwon; // 10
 
 	// 생성자
-	public Sports() {
+	Sports() {
 		name = "스포츠";
 		inwon = 10;
 	}
@@ -117,7 +117,24 @@ public class Ex06_01_상속 {
 
 		Football f2 = new Football("축구", 11, 3); // 인자, parameter
 		f2.display();
-
+		
+		System.out.println("************");
+		
+//		Sports s3 = new Sports("스포츠", 10);
+//		Sports b3 = new Baseball("야구", 9, 0.567);
+//		Sports f3 = new Football("축구", 11, 3);
+		
+		Sports[] arr = {
+							new Sports("스포츠", 10),
+							new Baseball("야구", 9, 0.567),
+							new Football("축구", 11, 3)
+						};
+		
+		for(int i=0; i<arr.length; i++) {
+			arr[i].display();
+		}
+	
+		
 	}// main
-
+	
 }

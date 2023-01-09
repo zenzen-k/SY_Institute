@@ -23,3 +23,11 @@ public class Car {
 	}
 
 }
+
+/*
+ * 접근제어자
+ * private : 선언한 클래스 내부!
+ * default : 생략가능. 같은 패키지 내부!
+ * protected : 다른 패키지의 상속받은 클래스까지 가능!
+ * public : 어디서나 사용 가능
+ * */
