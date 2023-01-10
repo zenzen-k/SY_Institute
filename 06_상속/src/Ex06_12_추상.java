@@ -31,7 +31,7 @@ class Triangle extends Shape{
 	public Triangle() {
 		System.out.println("Triangle 생성자");
 	}
-	public void draw() {
+	public void draw() { 	// 접근제어자를 부모보다 더 큰것을 사용하면 안된다.
 		System.out.println("삼각형을 그린다.");
 	}
 	public void delete() {
