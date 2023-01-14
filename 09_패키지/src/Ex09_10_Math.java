@@ -1,3 +1,6 @@
+import static java.lang.Math.*;
+// 안해도 됨 lang패키지는 자동이니까~
+// * 은 모든 것을 의미한다. -> Math클래스를 쓰겠다는 의미
 
 public class Ex09_10_Math {
 
@@ -22,8 +25,32 @@ public class Ex09_10_Math {
 		
 		
 		System.out.println(1);
+
+		// round 반올림해서 정수로 리턴해주는 메소드.
+		long m1 = Math.round(4.3);
+		System.out.println(m1);
+		
+		m1 = Math.round(4.9);
+		System.out.println(m1);
+		
+		// ceil 올림해서 실수로 리턴함 (ceil : 천장. 즉 올린다!)
+		double m2 = Math.ceil(4.3);
+		System.out.println(m2);
+		
+		m2 = Math.ceil(4.9);
+		System.out.println(m2);
+		
+		// floor 내림해서 실수로 리턴함. (floor : 바닥. 내린다!)
+		// 위에 Math클래스를 import 해준다면 Math를 생략할 수 있다.
+		double m3 = floor(4.9);
+		System.out.println(m3);
 		
 		
 	}
 
 }
+
+
+
+
+
