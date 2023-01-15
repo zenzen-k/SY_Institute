@@ -14,7 +14,7 @@ public class Ex09_11_김아연 {
 		for (i = 0; i < lotto.length; i++) {
 			int num = (int) (Math.random() * 45) + 1;
 
-			for (j = 0; j < i + 1; j++) {
+			for (j = 0; j < i; j++) {
 				while (num == lotto[j]) {
 					num = (int) (Math.random() * 45) + 1;
 				} // while
