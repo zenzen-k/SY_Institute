@@ -11,7 +11,6 @@ class Big extends Thread{ // Thread
 			} catch(InterruptedException e) {
 				
 			}
-			
 		}
 	}
 } // Big
@@ -24,16 +23,14 @@ class Small implements Runnable{// Runnable
 			System.out.print(i + " ");
 			
 			try {
-				//sleep 은 static이다. 클래스명으로 접근 하는 것을 보면!!!
-				Thread.sleep(100); // 1초 씩 천천히
-				// sleep메서드는 1초 잠자는 동안 예외가 발생할 수 있다.
+				//sleep 은 static이다. 클래스명으로 접근 하는 것을 보면 알수있음!!!
+				Thread.sleep(100); // 0.1초 씩 천천히
+				// sleep메서드는 0.1초 잠자는 동안 예외가 발생할 수 있다.
 				// 상속이 되지 않았으므로 클래스명 작성해주기.
-			}catch(InterruptedException e) {
-				
+			}catch(InterruptedException e) { 
+				// RuntimeException클래스가 아닌 Exception 클래스를 상속받기 때문에 예외처리가 필수이다.
 			}
-			
-			
-		}
+		} // for
 	} 
 } // Small
 

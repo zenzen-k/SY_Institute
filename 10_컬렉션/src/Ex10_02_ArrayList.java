@@ -119,6 +119,7 @@ public class Ex10_02_ArrayList {
 		Integer g2 = s2.get(0);
 		System.out.println("g2:" + g2);
 		
+		
 	}
 
 }

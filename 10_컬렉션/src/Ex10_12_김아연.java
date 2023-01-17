@@ -103,6 +103,6 @@ public class Ex10_12_김아연 {
 				break;
 			}
 		}
-
+		sc.close();
 	} // main
 }
