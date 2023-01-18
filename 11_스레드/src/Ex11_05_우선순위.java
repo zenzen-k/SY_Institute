@@ -32,6 +32,11 @@ public class Ex11_05_우선순위 {
 		Horizental ho = new Horizental();
 		Vertical ve = new Vertical();		
 		
+		// 내부적으로 스레드 이름이 생성
+		System.out.println(ho.getName());
+		System.out.println(ve.getName());
+		
+		
 		System.out.println("ho.getPriority():" + ho.getPriority()); // 정수 리턴.
 		System.out.println("ve.getPriority():" + ve.getPriority()); // 정수 리턴.
 		
