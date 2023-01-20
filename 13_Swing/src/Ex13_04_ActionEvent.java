@@ -4,18 +4,20 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 class ExActionEvent extends Frame implements ActionListener { // 액션을 위한 인터페이스 상속
 
 	Button b1, b2, b3, b4;
 
-	public ExActionEvent() {
+	public ExActionEvent() { // 익명클래스 방식~
 
 		b1 = new Button("노란색");
 		b2 = new Button("빨강색");
 		b3 = new Button("파란색");
 		b4 = new Button("분홍색");
-		
+
 		setLayout(new FlowLayout());
 		// 프레임에 추가~~
 		add(b1);
@@ -32,6 +34,14 @@ class ExActionEvent extends Frame implements ActionListener { // 액션을 위�
 		// Button이 클릭외었을 때 자동으로 ActionEvent가 발생되면서
 		// new ActionEvent()의 객체가 알아서 생성된다.
 
+		// 닫기 버튼
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		}); // addWindowListener
+		
+		// 프레임설정
 		setVisible(true);
 		setSize(400, 300);
 	}

@@ -6,7 +6,8 @@ import java.awt.Panel;
 class ExPanel extends Frame {
 
 	public ExPanel() {
-
+		setTitle("3번 예제"); // 이런 방식으로 제목을 달 수 있다.
+		
 		setSize(400, 300);
 
 		Button b1 = new Button("버튼1");
