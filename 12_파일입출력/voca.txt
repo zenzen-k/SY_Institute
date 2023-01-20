@@ -2,3 +2,4 @@ sky/하늘
 apple/사과
 hand/손
 apple pie/애플 파이
+school/학교
