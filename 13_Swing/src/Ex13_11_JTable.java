@@ -12,6 +12,7 @@ class ExJTable extends JFrame {
 						};	
 	
 	public ExJTable () {
+		// JFrame을 사용할땐 작업영역 먼저!
 		Container contentPane = getContentPane(); // getContentPane jframe이 가진 메서드이며 container리턴
 		
 		// 테이블 생성
