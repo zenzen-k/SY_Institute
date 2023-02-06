@@ -1,0 +1,22 @@
+[JDBC 프로그래밍 단계] - 순서 아주 중요!
+0. jar 화일 추가
+1. 드라이버 로드
+2. 계정에 접속
+3. SQL문 분석
+4. SQL문 실행
+5. 접속 끊기
+
+
+
+
+drop function test;
+create table test(
+	num number,
+	name varchar2(10),
+	addr varchar2(10)
+);
+
+insert into test values(1,'kim','서울');
+insert into test values(2,'hong','부산');
+commit;
+select * from test;
