@@ -50,18 +50,16 @@ public class Select {
 				
 			} // while
 			
-			
 			// 5. 접속 해제
 			conn.close();
 			System.out.println("연결 해제");
-			
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			System.out.println("드라이버 로딩 실패");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("DB 계정 접속/종료 실패"); // 계정 접속, 종료, SQL문 분석
+			System.out.println("DB 계정 접속/종료 실패"); // 계정 접속, 종료, SQL문 분석, SQL문 실행
 		} 
 		
 	}

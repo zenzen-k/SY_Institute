@@ -6,9 +6,6 @@ import java.sql.SQLException;
 public class Insert {
 	public static void main(String[] args) {
 		
-		
-		
-		
 		try {
 			// 1. 드라이버 로드
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -26,8 +23,15 @@ public class Insert {
 			String inputName = "choi";
 			String inputAddr = "제주";
 			
-			String sql = "insert into test values(4,'park','경기')";
+			//String sql = "insert into test values(4,'park','경기')";
+			//String sql = "insert into test values(" + inputNum + ",'" + inputName + "','" + inputAddr + "')";
+			String sql = "insert into test(num,name,addr) values(?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			//3.1 ?(위치홀더)에 값 채우기 4번이랑 순서바꾸면안됨
+			ps.setInt(1, inputNum); // 1번 물음표 자리에 숫자를 셋팅
+			ps.setString(2, inputName); // 2번 물음표 자리에 문자열을 셋팅
+			ps.setString(3, inputAddr); // 3번 물음표 자리에 문자열을 셋팅
 			
 			// 4. SQL문 실행
 			int cnt = ps.executeUpdate(); 
@@ -35,6 +39,11 @@ public class Insert {
 			
 			// 성공적으로 insert 한 개수를 리턴한다.
 			System.out.println("cnt:" + cnt);
+			
+			if(cnt>0)
+				System.out.println("insert 성공");
+			else
+				System.out.println("insert 실패");
 			
 			// 5. 접속 해제
 			conn.close();
