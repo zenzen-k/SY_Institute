@@ -1,0 +1,41 @@
+drop sequence perseq;
+
+create sequence perseq
+	increment by 1
+	start with 1
+	minvalue 0
+	nocache;
+	
+--create sequence perseq;
+
+drop table person purge;
+create table person(
+	num number primary key,
+	name varchar2(10),
+	age number,
+	gender char(3), --한글자씩 저장되는, char 사용 가능
+	birth date default sysdate
+);
+
+insert into person values(perseq.nextval, '제니', 23, '여', '1998-3-27');
+insert into person values(perseq.nextval, '딘딘', 42, '남', '1979-11-8');
+insert into person values(perseq.nextval, '웬디', 52, '여', '1987-4-2');
+insert into person values(perseq.nextval, '이찬원', 33, '남', '2003-7-6');
+
+commit;
+select * from person;
+
+
+
+DTO(Data Transfer Object)
+- 데이터의 전달을 위해 만들어진 오브젝트
+- 데이터를 담을 수 있는 private 변수와 그 변수를 조작할 수 있는 getter, setter로 구성된다.
+- bean 또는 VO(Value Object) 라고도 한다.
+
+
+DAO(Data Access Object)
+- DB를 사용해 데이터를 조회, 조작 등의 기능을 점담하도록 만든 오브젝트 (데이터베이스 작업을 하는 클래스)
+- DB와의 연결을 담당하는 객체
+- 저장소에 데이터를 입력, 조회, 수정, 삭제 등의 처리를 담당한다.
+
+
