@@ -22,6 +22,8 @@ insert into person values(perseq.nextval, '딘딘', 42, '남', '1979-11-8');
 insert into person values(perseq.nextval, '웬디', 52, '여', '1987-4-2');
 insert into person values(perseq.nextval, '이찬원', 33, '남', '2003-7-6');
 
+update person set name='kim', age=88, gender='여', birth='99-2-2' where num=2;
+
 commit;
 select * from person;
 
