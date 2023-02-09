@@ -17,6 +17,7 @@ create table products(
 	category varchar2(30), 
 	inputdate date default sysdate
 );
+
 // stock:재고량
 // category : 분류
 // inputdate : 입고일

@@ -75,6 +75,7 @@ public class ProductDao {
 		return lists;
 	} // selectAllProduct() 메서드
 	
+	
 	/* 2. 선택조회 - 아이디 */
 	public ProductBean getProductById(int id){
 		getConnection();
@@ -114,15 +115,154 @@ public class ProductDao {
 			}
 		} // finally
 		return pb;
-	} // getProductById
+	} // getProductById() 메서드
+	
+	
 	/* 3. 선택조회 - 카테고리 */
-	public void getProductByCategory(String category) {
+	public ArrayList<ProductBean> getProductByCategory(String category) {
 		getConnection();
 		
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		ProductBean pb = null;
+		ArrayList<ProductBean> lists = new ArrayList<ProductBean>();
 		
+		//String sql = "select * from products where category = ?";
+		// 입력받은거 대문자로 변경
+		//String sql = "select * from products where category = upper(?)"; 
+		// 입력되어있던 데이터 전체 소문자로 바꿔서 조회
+		String sql = "select * from products where lower(category) = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			// 입력받은 것도 소문자로 변경
+			ps.setString(1, category.toLowerCase());
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				pb = new ProductBean();
+				pb.setId(rs.getInt("id"));
+				pb.setName(rs.getString("name"));
+				pb.setStock(rs.getInt("stock"));
+				pb.setPrice(rs.getInt("price"));
+				pb.setCategory(rs.getString("category"));
+				pb.setInputdate(String.valueOf(rs.getDate("inputdate")));
+				
+				lists.add(pb);
+			} // while
+			System.out.println("lists.size() : " + lists.size());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null)
+					conn.close();
+				if(ps!=null)
+					ps.close();
+				if(rs!=null)
+					rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally
+		return lists;
+	} // getProductByCategory() 메서드
+	
+	
+	/* 4. 상품 추가 */
+	public int insertProduct(ProductBean pb) {
+		getConnection();
+		
+		int cnt = -1;
+		PreparedStatement ps = null;
+		
+		String sql = "insert into products values(prdseq.nextval,?,?,?,?,?)";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, pb.getName());
+			ps.setInt(2, pb.getStock());
+			ps.setInt(3, pb.getPrice());
+			ps.setString(4, pb.getCategory());
+			ps.setString(5, pb.getInputdate());
+			
+			cnt = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null)
+					conn.close();
+				if(ps!=null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally
+		return cnt;
+	} // insertProduct
+	
+	
+	/* 5. 상품 수정 */
+	public int updateProduct(ProductBean pb) {
+		getConnection();
+		
+		int cnt = -1;
+		PreparedStatement ps = null;
+		
+		String sql = "update products set name=?, stock=?, price=?, category=?, inputdate=? where id=?";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, pb.getName());
+			ps.setInt(2, pb.getStock());
+			ps.setInt(3, pb.getPrice());
+			ps.setString(4, pb.getCategory());
+			ps.setString(5, pb.getInputdate());
+			ps.setInt(6, pb.getId());
+			
+			cnt = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null)
+					conn.close();
+				if(ps!=null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally
+		return cnt;
 	}
 	
+	
+	/* 6. 상품 삭제 */
+	public int deleteProduct(int id2) {
+		getConnection();
+		
+		int cnt = -1;
+		PreparedStatement ps = null;
+		
+		String sql = "delete products where id="+id2;
+		try {
+			ps = conn.prepareStatement(sql);
+			cnt = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null)
+					conn.close();
+				if(ps!=null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally
+		return cnt;
+	} // deleteProduct 메서드
+
 	
 } // ProductDao 클래스
