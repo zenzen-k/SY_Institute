@@ -166,4 +166,51 @@ public class BookDao {
 		} // finally
 		return cnt;
 	} // insertBook
+
+	
+	/* 조건 조회 */
+	public ArrayList<BookBean> getBookBySearch(String column, String searchWord) {
+		getConnect();
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<BookBean> lists = new ArrayList<BookBean>();
+		
+		// 컬럼명은 ? 가 안된다. 오로지 밸류만 가능
+		// 중간중간 띄어쓰기 잊지말깅~
+		String sql = "select * from book where "+column+" like ? order by no";
+		// String sql = "select * from book where "+column+" like '" + searchWord + "%' order by no";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, '%'+ searchWord +'%');
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				BookBean bb = new BookBean();
+				bb.setNo(rs.getInt("no"));
+				bb.setTitle(rs.getString("title"));
+				bb.setAuthor(rs.getString("author"));
+				bb.setPublisher(rs.getString("publisher"));
+				bb.setPrice(rs.getInt("price"));
+				bb.setPub_day(String.valueOf(rs.getDate("pub_day")));
+				
+				lists.add(bb);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null)
+					conn.close();
+				if(ps!=null)
+					ps.close();
+				if(rs!=null)
+					rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return lists;
+	}
 }

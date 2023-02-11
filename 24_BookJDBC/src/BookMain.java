@@ -19,6 +19,7 @@ public class BookMain {
 		while(true) {
 			System.out.println("\n=====메뉴 선택하기=====");
 			System.out.println("1. 전체 정보 조회");
+			System.out.println("2. 조건 조회");
 			System.out.println("3. 정보 수정");
 			System.out.println("4. 정보 삭제");
 			System.out.println("5. 정보 추가");
@@ -30,6 +31,9 @@ public class BookMain {
 			case 1:
 					ArrayList<BookBean> lists = dao.getAllBook();
 					showBook(lists);
+					break;
+			case 2:
+					getBookBySearch();
 					break;
 			case 3:
 					updateBook();
@@ -49,7 +53,42 @@ public class BookMain {
 		} // while
 	} // init
 	
-	
+	/* 2. 조건 조회 */
+	private void getBookBySearch() {
+		String column = null;
+		String searchWord = null;
+		
+		System.out.println("제목:1  저자:2  출판사:3  번호입력>>");
+		int searchNum = sc.nextInt();
+		
+		switch(searchNum) {
+		case 1: 
+				System.out.println("조회할 제목 : ");
+				column = "title";
+				break;
+		case 2: 
+				System.out.println("조회할 저자 : ");
+				column = "author";
+				break;
+		case 3: 
+				System.out.println("조회할 출판사 : ");
+				column = "publisher";
+				break;
+		default : System.out.println("1~3사이의 번호만 입력하세요.");
+				return;
+		
+		}
+		// 어쩃든 스위치문 나가니까 입력을 여기서 한번에 받아도 ㄱㅊ
+		searchWord = sc.next();
+		
+		// searchWord 가 포함된~, column은 컬럼명!
+		ArrayList<BookBean> lists = dao.getBookBySearch(column, searchWord);
+		if (lists.size() == 0)
+			System.out.println("찾는 정보가 없습니다.");
+		else
+			showBook(lists);
+	} // getBookBySearch
+
 	/* 삽입/삭제/수정 결과 출력 */
 	private void result(int cnt) {
 		System.out.println("cnt : " + cnt);
